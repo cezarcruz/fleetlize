@@ -1,0 +1,17 @@
+info:
+  name: Car Manager
+  description: Manager car fleet
+  version: ${version}
+
+spring:
+  application:
+    name: car-manager
+  cloud:
+    bus:
+      enabled: ${CONSUL_ENABLED:false}
+    discovery:
+      enabled: ${CONSUL_ENABLED:false}
+    consul:
+      enabled: ${CONSUL_ENABLED:false}
+      config:
+        enabled: ${CONSUL_ENABLED:false}

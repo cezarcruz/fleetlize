@@ -1,0 +1,18 @@
+url: jdbc:mysql://localhost/car_manager
+username: root
+password: root
+driver: com.mysql.cj.jdbc.Driver
+
+databaseChangeLog:
+  - include:
+      file: migrations/001_initial_schema.sql
+      relativeToChangelogFile: true
+  - include:
+      file: migrations/002_insert_initial_data.sql
+      relativeToChangelogFile: true
+  - include:
+      file: migrations/003_update_category_schema.sql
+      relativeToChangelogFile: true
+  - include:
+      file: migrations/004_update_category_schema.sql
+      relativeToChangelogFile: true

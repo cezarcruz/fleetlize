@@ -1,0 +1,27 @@
+<fleet-navigation-bar (toggleSidenav)="sidenav.toggle();"></fleet-navigation-bar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav style="width: 175px;">
+    <mat-nav-list>
+      <div mat-subheader>CAR MANAGER</div>
+      <mat-list-item [routerLink]="'/car-manager/create'">
+        <mat-icon mat-list-icon routerLinkActive="active">add</mat-icon>
+        <div mat-line>New Car</div>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'/car-manager/list'">
+        <mat-icon mat-list-icon>table_chart</mat-icon>
+        <div mat-line>List</div>
+      </mat-list-item>
+
+      <a mat-list-item (click)="sidenav.toggle()" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="height: 90vh;">
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+      <div fxFlex="33"></div>
+      <div fxFlex="67">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

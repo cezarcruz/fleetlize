@@ -1,0 +1,23 @@
+logging:
+  file: ${LOG_PATH:/tmp/api-gateway.log}
+
+server:
+  port: 8080
+
+info:
+  name: Api Gateway
+  version: ${version}
+
+zuul:
+  prefix: /api
+  routes:
+    car-manager:
+      path: /v1/car-manager/**
+      service-id: car-manager
+    booking-manager:
+      path: /v1/booking-manager/**
+      service-id: booking-manager
+    rating-manager:
+      path: /v1/rating-manager/**
+      service-id: rating-manager
+  ignored-services: '*'

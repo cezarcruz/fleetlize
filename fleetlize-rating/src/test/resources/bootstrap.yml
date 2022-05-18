@@ -1,0 +1,17 @@
+info:
+  name: Rating
+  description: Rating Manager
+  version: ${version}
+
+spring:
+  application:
+    name: rating-manager
+  cloud:
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
+    consul:
+      enabled: false
+      config:
+        enabled: false

@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit();">
+  <mat-form-field>
+    <mat-label>Car Model</mat-label>
+    <mat-select formControlName="model" (selectionChange)="onModelChange()">
+      <mat-option *ngFor="let model of models" [value]="model">
+        {{model.model}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <span style="margin-left: 15px;">preco diario: {{ dailyPrice | currency: 'BRL' }}</span>
+
+  <mat-form-field class="full-width">
+    <mat-label>Car name</mat-label>
+    <input formControlName="name" matInput type="text">
+  </mat-form-field>
+
+  <div class="full-width">
+    <mat-form-field>
+      <mat-label>Mileage</mat-label>
+      <input formControlName="mileage" matInput type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Plate</mat-label>
+      <input formControlName="plate" matInput type="text">
+    </mat-form-field>
+  </div>
+
+  <button mat-flat-button color="primary" type="submit">Save</button>
+</form>

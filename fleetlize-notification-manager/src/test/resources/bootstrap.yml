@@ -1,0 +1,17 @@
+info:
+  name: Booking
+  description: Booking Manager
+  version: ${version}
+
+spring:
+  application:
+    name: booking-manager
+  cloud:
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
+    consul:
+      enabled: false
+      config:
+        enabled: false

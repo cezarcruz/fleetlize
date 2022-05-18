@@ -1,0 +1,6 @@
+--liquibase formatted sql
+
+--changeset cezar:2
+INSERT INTO MANUFACTURER (NAME, CREATION_DATE) VALUES ('Ford', CURRENT_TIMESTAMP);
+
+--rollback DELETE FROM MANUFACTURER WHERE NAME = 'Ford';
