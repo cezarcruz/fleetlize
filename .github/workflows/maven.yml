@@ -12,3 +12,100 @@ jobs:
       - name: Build with Maven
         working-directory: ./fleet-kt
         run: mvn -B package --file pom.xml
+  build-fleet-integrator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Build with Maven
+        working-directory: ./fleet-integrator
+        run: mvn -B package --file pom.xml
+  build-fleetlize-api-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Build with Maven
+        working-directory: ./fleetlize-api-gateway
+        run: mvn -B package --file pom.xml
+  build-fleetlize-car-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Build with Maven
+        working-directory: ./fleetlize-car-manager
+        run: mvn -B package --file pom.xml
+  build-fleetlize-web-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        working-directory: ./fleetlize-web-app
+        run: npm i
+      - name: Run lint
+        working-directory: ./fleetlize-web-app
+        run: npm run ng lint
+      - name: Run test
+        working-directory: ./fleetlize-web-app
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - name: Run integration test
+        working-directory: ./fleetlize-web-app
+        run: |
+          npm run e2e
+  build-fleetlize-notification-manager:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Build with Maven
+        working-directory: ./fleetlize-notification-manager
+        run: mvn -B package --file pom.xml
+  build-fleetlize-rating:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 15
+        uses: actions/setup-java@v1
+        with:
+          java-version: 15
+      - name: Build with Maven
+        working-directory: ./fleetlize-rating
+        run: mvn -B package --file pom.xml
+  build-backoffice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Install dependencies
+        working-directory: ./fleetlize-backoffice
+        run: npm i
+      - name: Run lint
+        working-directory: ./fleetlize-backoffice
+        run: npm run ng lint
+      - name: Run test
+        working-directory: ./fleetlize-backoffice
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - name: Run integration test
+        working-directory: ./fleetlize-backoffice
+        run: |
+          npm run e2e
