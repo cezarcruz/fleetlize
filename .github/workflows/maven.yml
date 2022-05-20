@@ -55,17 +55,10 @@ jobs:
       - name: Install dependencies
         working-directory: ./fleetlize-web-app
         run: npm i
-      - name: Run lint
-        working-directory: ./fleetlize-web-app
-        run: npm run ng lint
       - name: Run test
         working-directory: ./fleetlize-web-app
         run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - name: Run integration test
-        working-directory: ./fleetlize-web-app
-        run: |
-          npm run e2e
   build-fleetlize-notification-manager:
     runs-on: ubuntu-latest
     steps:
@@ -101,11 +94,11 @@ jobs:
       - name: Run lint
         working-directory: ./fleetlize-backoffice
         run: npm run ng lint
-      - name: Run test
-        working-directory: ./fleetlize-backoffice
-        run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-      - name: Run integration test
-        working-directory: ./fleetlize-backoffice
-        run: |
-          npm run e2e
+      # - name: Run test
+      #   working-directory: ./fleetlize-backoffice
+      #   run: |
+      #     npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      # - name: Run integration test
+      #   working-directory: ./fleetlize-backoffice
+      #   run: |
+      #     npm run e2e

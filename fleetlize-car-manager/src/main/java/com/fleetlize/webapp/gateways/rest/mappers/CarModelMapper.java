@@ -6,6 +6,7 @@ import com.fleetlize.webapp.gateways.rest.response.CarModelResponse;
 import org.mapstruct.IterableMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public interface CarModelMapper {
   @Mapping(source = "categoryId", target = "category.id")
   CarModel from(final CarModelRequest carModelRequest);
 
+  @Named("from")
   CarModelResponse from(final CarModel carModel);
 
   @Mapping(source = "carModel.manufacturerId", target = "manufacturer.id")
